@@ -1,5 +1,9 @@
 package com.campusdual.classroom;
 
+
+import javax.xml.crypto.Data;
+import java.util.Date;
+
 public abstract class Merchandise {
 
 	protected String name;
@@ -9,6 +13,11 @@ public abstract class Merchandise {
 	protected String area;
 	protected String shelf;
 	protected int quantity;
+	protected Date expirationDate;
+
+	public Merchandise(){
+
+	}
 
 	public Merchandise(String name, String uniqueId, String responsibleId) {
 		this.name = name;
@@ -27,6 +36,17 @@ public abstract class Merchandise {
 		this.quantity = quantity;
 	}
 
+	public Merchandise(String name, String uniqueId, String responsibleId, int zone, String area, String shelf, int quantity, Date expirationDate) {
+		this.name = name;
+		this.uniqueId = uniqueId;
+		this.responsibleId = responsibleId;
+		this.zone = zone;
+		this.area = area;
+		this.shelf = shelf;
+		this.quantity = quantity;
+		this.expirationDate = expirationDate;
+	}
+
 	public String getLocation() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Z - ");
@@ -37,6 +57,7 @@ public abstract class Merchandise {
 		builder.append(getShelf());
 		return builder.toString();
 	}
+
 
 	public abstract Object getSpecificData();
 
@@ -95,4 +116,9 @@ public abstract class Merchandise {
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
+	public Date getExpirationDate(){
+		return expirationDate;
+
+	}
+
 }
