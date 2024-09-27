@@ -15,8 +15,8 @@ public class FreshMerchandise extends Merchandise {
         super(name, uniqueId, responsibleId, zone, area, shelf, quantity,expirationDate);
     }
 
-
-    public String getSpecificData() {
+    @Override
+    public Object getSpecificData() {
 
         StringBuilder sb = new StringBuilder();
         String localizacion = super.area;
@@ -27,8 +27,21 @@ public class FreshMerchandise extends Merchandise {
         sb.append(caducidad);
         return sb.toString();
     }
+
+
+    /*    public String getSpecificData() {
+
+            StringBuilder sb = new StringBuilder();
+            String localizacion = super.area;
+            String caducidad = getFormattedDate(super.expirationDate);
+            sb.append("Localización: ");
+            sb.append(localizacion);
+            sb.append(" Fecha: ");
+            sb.append(caducidad);
+            return sb.toString();
+        }*/
     public void printSpecificData(){
-        String especificdata = getSpecificData();
+        String especificdata = getSpecificData().toString();
         System.out.println(especificdata);
     }
     public String getFormattedDate(Date fecha){
